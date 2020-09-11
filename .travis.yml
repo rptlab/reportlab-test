@@ -17,10 +17,8 @@ env:
   - RLCACHE=manylinux/reportlab
   - secure: mUagh+59W6bLxJdCsHIO9iO5S9yEjBsAVyAk8JyIQxPX+hHKxWahBUt7oirWlA/Br0ByBXyNuXWVf899LpNpRPPcWjCJn1i94S+ER6xSUnuKuEw8X3uKMiVB4m+QavD+vDnYCTlj5C69pEqIe6/Qpds0pn6lc3QZhqxhXShKrptqVkGnYKGLPugWDDyg7fYh3ygOz/2BwfQMItBHbwZZ09FTnEtoM0gn/QybL4DHL9PpWnKtJVa/4b8SqGU41xGF5qh/nEuNT4UXBPd2ahbfYCP+N2IYYRHLLo66M8gcZOdS0iSWb1+qIWFrDzmzJ8WLC7pOVJ7lwm7KMWt1dMl5vbPTu1V+a6sXzHWkxFutjQ0zQczJv8BTV/lj5d6OnYRVL5SP/1mYl8KkGmq8ChbYZVFl+gE/82rw0fZ83Ay/K41qz2pbgO3hcPDJqxQjVQJWWEveQhxCL2jXN/e6cMWfpe2KuL6qsDLPwT4TKf3FjXXH3WNmY1QUq7GHPkJiBauj0jmpo59Y7I9t/TaTFkt1H9LaKkbxuOTl4qecNh38ABywuZCc+e3XBDsyqZrQvy7P7QM2nDd+1OHLGnLcKmDY3DmHFKji0NYqE45sJpjYfqgr3/G6gnB6cJNh3iWA1jZdxCLQQTAx+ZawAKpyeagN8cej6r5XqwcIL69pq9Di2RM=
   # travis encrypt -r MrBitBucket/reportlab-mirror CITOOLS_PASSWORD="****\\;*************\\#*****" --add with extra bash quoting
-language: python
-# Default Python version is usually 3.5
-python: 3.5
-sudo: required
+language: shell
+os: linux
 dist: trusty
 services: docker
 
@@ -31,10 +29,7 @@ notifications:
     - live_errors@reportlab.com
     on_success: always
     on_failure: always
-matrix:
-  exclude:
-  # Exclude the default Python 3.5 build
-  - python: 3.5
+jobs:
   include:
   - os: linux
     env:
