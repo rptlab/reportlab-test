@@ -100,7 +100,7 @@ jobs:
 before_install:
 - git clone https://github.com/matthew-brett/multibuild $MULTIBUILD_DIR
 - cd $MULTIBUILD_DIR
-- git checkout c6d2d92e77a5bdeb2a0e2d5c10ba539932669e80
+- git checkout ec386efaa9e6840b552d845dfc4d597f6b97a2b7
 - cd ..
 - git clone https://github.com/MrBitBucket/reportlab-mirror $REPO_DIR
 - source $MULTIBUILD_DIR/common_utils.sh
