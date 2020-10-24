@@ -102,7 +102,7 @@ before_install:
 - cd $MULTIBUILD_DIR
 - git checkout ec386efaa9e6840b552d845dfc4d597f6b97a2b7
 - cd ..
-- git clone https://github.com/MrBitBucket/reportlab-mirror $REPO_DIR
+- git clone https://github.com/MrBitBucket/reportlab-test-mirror $REPO_DIR
 - source $MULTIBUILD_DIR/common_utils.sh
 - source $MULTIBUILD_DIR/travis_steps.sh
 - before_install
