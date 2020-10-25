@@ -18,16 +18,15 @@ environment:
     RLCACHE: windows/reportlab
 
   matrix:
+    - PYVER: 39
+      ARCH: X86
+
+    - PYVER: 39-x64
+      ARCH: AMD64
     - PYVER: 27
       ARCH: X86
 
     - PYVER: 27-x64
-      ARCH: AMD64
-
-    - PYVER: 35
-      ARCH: X86
-
-    - PYVER: 35-x64
       ARCH: AMD64
 
     - PYVER: 36
