@@ -30,8 +30,7 @@ function pre_build {
 }
 function run_tests {
 	(
-	echo -n "+++++ python version:";python --version
-	echo -n "+++++ python sys.version:";python -c"import sys;print(sys.version.split()[0])"
+	echo -n "+++++ python version:";python -c"import sys;print(sys.version.split()[0])"
 	echo -n "+++++ filesystemencoding:";python -c"import sys;print(sys.getfilesystemencoding())"
 	cd ../reportlab/tests
 	echo "===== in reportlab/tests pwd=`pwd`"

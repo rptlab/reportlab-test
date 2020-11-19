@@ -24,7 +24,7 @@ from reportlab.platypus import tableofcontents
 from reportlab.platypus.tableofcontents import TableOfContents
 from reportlab.platypus.tables import TableStyle, Table
 from reportlab.platypus.paragraph import Paragraph, _getFragWords, _splitWord, _fragWordSplitRep, ABag, pyphen
-from reportlab.rl_config import rtlSupport
+from reportlab.rl_config import rtlSupport, trustedHosts, trustedSchemes
 
 def myMainPageFrame(canvas, doc):
     "The page frame used for all PDF documents."
@@ -676,6 +676,35 @@ providing the ultimate in ease of installation.''',
                 """<unichar code="open('/tmp/test.txt','w').write('Hello from unichar')"/>""",
                 normal)
 
+    @unittest.skipUnless(trustedHosts,'s')
+    def test_badUri0(self):
+        """test we catch bad hosts"""
+        normal = getSampleStyleSheet()['BodyText']
+        self.assertRaises(Exception,Paragraph,
+                """<img src='https://badhost.com'/>""",
+                normal)
+        self.assertRaises(Exception,Paragraph,
+                """<img src='https://127.0.0.1:5000'/>""",
+                normal)
+        self.assertRaises(Exception,Paragraph,
+                """<img src='https://www.reportlab.com:5000'/>""",
+                normal)
+
+    @unittest.skipUnless(trustedSchemes,'s')
+    def test_badUri1(self):
+        """test we catch bad schemes"""
+        normal = getSampleStyleSheet()['BodyText']
+        self.assertRaises(Exception,Paragraph,
+                """<img src='badscheme://badhost.com'/>""",
+                normal)
+        self.assertRaises(Exception,Paragraph,
+                """<img src='badscheme://127.0.0.1:5000'/>""",
+                normal)
+        self.assertRaises(Exception,Paragraph,
+                """<img src='myscheme://www.reportlab.com'/>""",
+                normal)
+
+
 class TwoFrameDocTemplate(BaseDocTemplate):
     "Define a simple document with two frames per page."
     
@@ -943,6 +972,7 @@ class FragmentTestCase(unittest.TestCase):
                             firstLineIndent=0,
                             spaceBefore = 9.5,
                             fontSize=10,
+                            hyphenationLang="en_GB",
                             )
         sty1=ParagraphStyle(
                             name="base",
@@ -952,13 +982,16 @@ class FragmentTestCase(unittest.TestCase):
                             firstLineIndent=0,
                             spaceBefore = 9.5,
                             fontSize=10,
+                            hyphenationLang="en_GB",
                             )
-        styN =  ParagraphStyle('normal')
+        styN =  ParagraphStyle('normal', hyphenationLang="en_GB")
         styF=ParagraphStyle(
                             name = 'styF',
                             fontName='Courier',
                             fontSize=8,
-                            leading=9.6)
+                            leading=9.6,
+                            hyphenationLang="en_GB",
+                            )
         def box(x, y, aW, h):
             canv.saveState()
             canv.setDash(1,1)
