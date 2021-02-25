@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  GIT_REPO: "MrBitBucket/reportlab-mirror"
+  GIT_REPO: "MrBitBucket/reportlab-test-mirror"
   REPO_DIR: reportlab
   MACOSX_DEPLOYMENT_TARGET: "10.10"
   WHEEL_SDIR: wheelhouse
