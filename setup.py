@@ -1,6 +1,6 @@
 #Copyright ReportLab Europe Ltd. 2000-2017
 #see license.txt for license details
-__version__='3.5.48'
+__version__='3.5.56'
 import os, sys, glob, shutil, re
 def specialOption(n):
     v = False
@@ -387,8 +387,8 @@ def main():
         if sys.platform == 'win32':
             debug_compile_args=['/Zi']
             debug_link_args=['/DEBUG']
-            if debug>1:
-                debug_macros.extend([('RL_DEBUG',debug), ('ROBIN_DEBUG',None)])
+        if debug>1:
+            debug_macros.extend([('RL_DEBUG',debug), ('ROBIN_DEBUG',None)])
     if mdbg:
         debug_macros.extend([('MEMORY_DEBUG',None)])
 
@@ -631,14 +631,18 @@ def main():
                 'Programming Language :: Python :: 2',
                 'Programming Language :: Python :: 2.7',
                 'Programming Language :: Python :: 3',
-                'Programming Language :: Python :: 3.5',
                 'Programming Language :: Python :: 3.6',
                 'Programming Language :: Python :: 3.7',
                 'Programming Language :: Python :: 3.8',
+                'Programming Language :: Python :: 3.9',
                 ],
             
             #this probably only works for setuptools, but distutils seems to ignore it
             install_requires=['pillow>=4.0.0'],
+            python_requires='>=2.7, >=3.6, <4',
+            extras_require={
+                'RLPYCAIRO': ['rlPyCairo>=0.0.5'],
+                },
             )
         print()
         print('########## SUMMARY INFO #########')

@@ -11,6 +11,56 @@ E.g. to retrieve the changes made between release 3.4 and release 3.5, type::
 The contributors lists are in no order and apologies to those accidentally not
 mentioned. If we missed you, please let us know!
 
+CHANGES  3.5.61	 dd/02/2021
+---------------------------
+	* add adjustableArrow widget
+	* allow para tag borderPadding attribute
+	* minor cosmetics in renderPM C extension and add fontSize setattr 
+	* allow a bounding box constraint in definePath
+	* efficiency savings in text2Path
+	* refactor transformation math and text2Path functionality	
+	* allow a renderPM plugin cairo backend package rlPyCairo
+
+CHANGES  3.5.60	 22/01/2021
+---------------------------
+	* Allow legend column control of vertical alignment
+	* Allow renderTextMode attribute in reportlab.graphics.shapes.String
+	* Allow renderTextMode drawString handling in renderPDF/PM/PS/SVG
+	* Some fixes to fillMode handling
+
+CHANGES  3.5.59	 04/01/2021
+---------------------------
+	* Minor changes to table rounded corners; some documentation updates
+
+CHANGES  3.5.58	 01/01/2021
+---------------------------
+	* Allow variant corners in Canvas.roundRect
+	* Allow tables to have rounded corners
+
+CHANGES  3.5.57	 27/12/2020
+---------------------------
+	* added ddfStyle to Label
+	* allowed for embedded(and ordinary)Hyphenation to pre-empt splitting when embeddedHyphenation>=2
+	* fix extension escapePDF so it can handle unicode
+	* fix poundsign in Ean5BarcodeWidget
+	* Table can use __styledWrap__ for sizing
+	* test fixes so 3.9 and 2.7 produce same pdf
+
+CHANGES  3.5.56	 10/12/2020
+---------------------------
+	* added .github action wheel.yml
+	* micro change to userguide doc
+
+RELEASE 3.5.56	 01/12/2020
+---------------------------
+	* micro changes for Big Sur in C extensions
+	* allow Drawing.outDir to be a callable for more control in save method
+
+RELEASE 3.5.55	 29/10/2020
+---------------------------
+	* add trustedHosts and trustedSchemes for url management
+	* deifinitely drop 3.5 support (Jon Ribbens points out it may have happened in 3.5.54).
+
 RELEASE 3.5.54	 23/10/2020
 ---------------------------
 	* Allow extra fields in AcroForm suggested by Chris Else ubuntu247 at gmail.com
